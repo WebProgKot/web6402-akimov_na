@@ -1,0 +1,552 @@
+/* 1. Переменные */
+:root {
+    --bg-dark: rgb(23, 16, 43);
+    --bg-card: rgb(36, 26, 63);
+    --bg-elevated: rgb(46, 34, 73);
+    --amethyst: rgb(157, 107, 206);
+    --amethyst-glow: rgb(201, 168, 240);
+    --gold: rgb(217, 178, 76);
+    --text: rgb(219, 213, 231);
+    --text-muted: rgb(156, 143, 196);
+    --border: rgb(58, 43, 94);
+    --danger: rgb(194, 91, 91);
+    --success: rgb(95, 174, 127);
+}
+
+
+/* 2. Сброс и база (заголовки, main, картинка, ссылки) */
+/* Форматирование заголовков */
+h1, h2, h3, h4 {
+    font-family: Georgia, 'Times New Roman', serif;
+    letter-spacing: 0.5px;
+    font-weight: bold;
+}
+
+h1 {
+    font-size: 34px;
+    margin-bottom: 16px;
+    color: var(--amethyst-glow);
+}
+
+h2 {
+    font-size: 26px;
+    margin-bottom: 16px;
+    color: var(--text);
+}
+
+h3 {
+    font-size: 20px;
+    color: var(--text);
+}
+
+h4 {
+    font-size: 16px;
+    color: var(--text);
+}
+
+/* Хэдер */
+.site-header {
+    display: flex;
+    justify-content: center;
+    padding: 18px 16px 10px;
+}
+
+/* Футер */
+.site-footer {
+    margin-top: 32px;
+    padding: 16px;
+    border-top: 1px solid var(--border);
+    text-align: center;
+}
+
+/* Лого Аметистовый дозор */
+.logo {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 22px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    color: var(--amethyst-glow);
+    text-decoration: none;
+}
+
+/* Основной текст */
+body {
+    font-family: 'Segoe UI', system-ui, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--text);
+    background-color: var(--bg-dark);
+}
+
+/* Основной контент */
+main {
+    max-width: 1024px;
+    margin: 0 auto;
+    padding: 24px 16px;
+}
+
+/* 3. Навигация */
+/* Навигация, текущая страница */
+.main-nav .current {
+    font-weight: bold;
+    color: var(--gold);
+}
+
+/* Навигация, ссылки */
+.main-nav a {
+    color: var(--amethyst);
+    text-decoration: none;
+}
+
+.main-nav a:hover {
+    color: var(--amethyst-glow)
+}
+
+/* Ссылки */
+a {
+    color: var(--amethyst);
+}
+
+a:hover {
+    color: var(--amethyst-glow);
+}
+
+/* Рамка эмблемы Аметистового дозора */
+img.blurred-border-amethyst {
+    box-shadow: 0 0 12px 2px rgba(221, 127, 245, 0.5);
+    border-radius: 8px;
+}
+
+/* 4. figure - Выравнивание картинок */
+figure.align-right {
+    float: right;
+    width: 25%;
+    margin-left: 20px;
+    margin-bottom: 10px;
+    max-width: 300px;
+}
+
+figure.align-left {
+    float: left;
+    width: 25%;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    max-width: 300px;
+}
+
+figure img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+figure.settlement img {
+    width: 75%;
+    max-width: 700px;
+    margin: 0 auto;
+    border-radius: 12px;
+}
+
+figure {
+    margin: 0;
+}
+
+/* Подпись к картинке */
+figcaption {
+    text-align: center;
+    font-size: 0.9em;
+    color: var(--text);
+    margin-top: 5px;
+}
+
+/* 5. Компоненты */
+/* Подписи и мета-информация */
+.meta-info {
+    font-size: 13px;
+    color: var(--text-muted);
+}
+
+/* Карточки */
+.card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+    margin-bottom: 10px;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    border-color: var(--gold);
+    box-shadow: 0 8px 24px rgba(157, 107, 206, 0.35);
+}
+
+.card h1,h2,h3,h4 {
+    margin: 0;
+}
+
+/* Постройки */
+.card.building {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.card.building figure {
+    flex: 0 0 300px;
+    overflow: hidden;
+}
+
+.card.building figure img {
+    border-radius: 10px;
+}
+
+.building-body {
+    flex: 1;
+    min-width: 0;
+}
+
+.building-body h4 {
+    margin: 6px 0 6px;
+    font-size: 0.95rem;
+}
+
+.building-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.building-meta .item:not(:last-child)::after,
+.char-meta .item:not(:last-child)::after {
+    content: "·";
+    margin-left: 8px;
+    color: var(--gold);
+}
+
+.building-bonuses {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 8px 0 16px;
+    padding: 0;
+}
+
+.building-bonuses li {
+    background-color: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: 100vh;
+    padding: 2px 12px;
+    font-size: 0.85rem;
+}
+
+.camp-params {
+    margin-bottom: 16px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 6px 12px;
+}
+
+.camp-buildings-params summary {
+    color: var(--gold);
+}
+
+.building-bonuses.camp-bonuses li {
+    font-size: 1rem;
+}
+
+.building-bonuses b {
+    color: var(--gold);
+}
+
+.upgrade {
+    margin-top: 12px;
+    padding: 8px 12px;
+    background-color: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+}
+
+.upgrade summary {
+    cursor: pointer;
+    color: var(--gold);
+    font-weight: bold;
+}
+
+.upgrade ul {
+    margin: 8px 0 0;
+    padding-left: 20px
+}
+
+.upgrade ul b {
+    color: var(--text-muted);
+}
+
+.upgrade[data-status="built"] ul b {
+    color: var(--gold);
+}
+
+.is-zero b {
+    color: var(--text-muted);
+}
+
+/* Разворачиваемые карточки */
+.char-face {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    cursor: pointer;
+    gap: 16px;
+}
+
+.char-face h3 {
+    margin: 0;
+}
+
+.char-portrait {
+    flex: 0 0 auto;
+    width: 15%;
+    border-radius: 20px;
+    object-fit: cover;
+    border: 1px solid var(--border);
+}
+
+.char-sub {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: normal;
+    color: var(--text-muted);
+}
+
+.char-face .status {
+    margin-left: auto;
+}
+
+.char-face::after {
+    content: "▸";
+    color: var(--gold);
+    margin-left: 8px;
+    font-size: 1.5rem;
+    transition: transform 0.2s;
+}
+
+.char-card details[open] .char-face::after {
+    transform: rotate(90deg);
+}
+
+.char-face:hover h3 {
+    color: var(--gold);
+}
+
+.char-body {
+    max-width: 75ch;
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+}
+
+.char-body p, ul {
+    margin-top: 6px;
+}
+
+.char-body blockquote {
+    margin: 16px 0 0;
+    padding: 4px 0 4px 16px;
+    border-left: 3px solid var(--gold);
+    color: var(--text-muted);
+    font-style: italic;
+}
+
+.char-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.status {
+    display: inline-block;
+    padding: 2px 12px;
+    border: 1px solid;
+    border-radius: 100vh;
+    font-size: 13px;
+}
+
+.status-signed {
+    color: var(--success);
+    border-color: var(--success);
+}
+
+.status-draft {
+    color: var(--text-muted);
+    border-color: var(--text-muted);
+}
+
+/* Кнопки */
+.btn {
+    display: inline-block;
+    padding: 10px 24px;
+    border: 1px solid var(--amethyst);
+    border-radius: 20px;
+    color: var(--amethyst-glow);
+    text-decoration: none;
+    transition: background-color 0.25s, color 0.25s;
+}
+
+.btn:hover {
+    background-color: var(--amethyst);
+    color: var(--bg-dark);
+}
+
+/* 6. Страницы */
+/* Статистика */
+.statistics {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px 56px;
+    padding: 20px 24px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+}
+
+.statistics-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px 20px;
+}
+
+.statistic {
+    text-align: center;
+}
+
+.statistic-num {
+    display: block;
+    font-size: 44px;
+    line-height: 1.1;
+    color: var(--gold);
+}
+
+.statistic-label {
+    display: block;
+    font-size: 13px;
+    color: var(--text-muted);
+}
+
+/* Интро */
+.intro {
+    max-width: 720px;
+    margin: 0 auto 28px;
+    text-align: center;
+}
+
+/* Таблицы */
+.ta-c {
+    text-align: center;
+}
+
+.ta-l {
+    text-align: left;
+}
+
+.ta-r {
+    text-align: right;
+}
+
+.bonus-table {
+    width: 100%;
+    margin: 8px 0 16px;
+    font-size: 0.9rem;
+}
+
+.params-summary td:last-child {
+    color: var(--gold);
+    font-weight: bold;
+}
+
+.bonus-table th, .bonus-table td {
+    padding: 6px 8px;
+    color: var(--gold);
+    border-bottom: 2px solid var(--gold);
+}
+
+.bonus-table thead th {
+    border-top: 2px solid var(--gold);
+    background-color: var(--bg-elevated);
+}
+
+/* 7. id */
+#deekonus {
+    scroll-margin-top: 90px;
+}
+
+/* 10. Адаптация */
+/* Скрин-ридер */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Мобильная версия */
+@media (max-width: 720px) {
+    .site-header { flex-direction: column; gap: 10px; }
+    .main-nav { flex-wrap: wrap; justify-content: center; }
+    .card-grid, .building-grid {
+        grid-template-columns: 1fr;
+    }
+    .statistic { justify-content: center; }
+
+    figure.align-right, figure.align-left {
+        float: none;
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto 16px;
+    }
+}
+
+@media (max-width: 560px) {
+    .card.building {
+        flex-direction: column;
+    }
+    .card.building figure {
+        flex: 0 0 auto;
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto 16px;
+    }
+}
+
+/* Отключение движения для пользователей с данной настройкой */
+@media (prefers-reduced-motion: reduce) {
+
+    .card, .btn {
+        transition: none;
+    }
+
+    .card:hover {
+        transform: none;
+    }
+
+    .char-face::after {
+        transition: none;
+    }
+
+    .char-card details[open] .char-face::after {
+        transform: none;
+    }
+}
