@@ -22,16 +22,49 @@
     <main>
       <section class="intro">
         <h1>Аванпост «Падший дом»</h1>
-        <figure>
+        <figure class="settlement">
           <img
             src="img/settlement.jpg"
+            class="blurred-border-amethyst"
             alt="Аванпост «Падший дом»: бывший летающий корабль, защищённый стеной и облагороженный дозорными"
           />
-          <figcaption>Падший дом — вид с ворот</figcaption>
+          <figcaption>Падший дом — вид сверху, со стороны ворот</figcaption>
         </figure>
       </section>
 
-      <section class="camp-parameters">
+      <section class="camp-params">
+        <h2>Сводка по постройкам</h2>
+        <details class="camp-buildings-params">
+          <summary>Показать / скрыть</summary>
+          <table class="bonus-table params-summary">
+            <caption class="sr-only">
+              Суммарные бонусы построек к параметрам лагеря
+            </caption>
+            <thead>
+              <tr>
+                <th class="ta-l">Параметр</th>
+                <th class="ta-c">Бар</th>
+                <th class="ta-c">Система укреплений</th>
+                <th class="ta-r">Итого</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Отдых</td>
+                <td class="ta-c">+2</td>
+                <td class="ta-c">-</td>
+                <td class="ta-r">+2</td>
+              </tr>
+              <tr>
+                <td>Военное дело</td>
+                <td class="ta-c">-</td>
+                <td class="ta-c">+1</td>
+                <td class="ta-r">+1</td>
+              </tr>
+            </tbody>
+          </table>
+        </details>
+
         <h2>Параметры лагеря</h2>
         <p class="meta-info">
           Текущие значения — сумма вкладов всех построенных сооружений.
@@ -67,7 +100,7 @@
             <span class="item">материалы: 1000</span>
             <span class="item">золото: 1000</span>
           </p>
-          <h4>Требования к экплуатации</h4>
+          <h4>Требования к эксплуатации</h4>
           <p class="building-meta">
             <span class="item">персонал: 5</span>
           </p>
@@ -113,7 +146,10 @@
             <summary>Элитный алкоголь</summary>
             <ul>
               <li>Параметр: Отдых <b>+1</b></li>
-              <li>Начала Путешествия из Аванпоста "Падший дом" предоставляют <b>+2</b> временных ПЗ</li>
+              <li>
+                Начала Путешествия из Аванпоста "Падший дом" предоставляют
+                <b>+2</b> временных ПЗ
+              </li>
             </ul>
           </details>
         </div>
@@ -130,7 +166,7 @@
             <span class="item">материалы: 1000</span>
             <span class="item">золото: 1000</span>
           </p>
-          <h4>Требования к экплуатации</h4>
+          <h4>Требования к эксплуатации</h4>
           <p class="building-meta">
             <span class="item">персонал: 25</span>
           </p>
@@ -168,7 +204,7 @@
               <span class="item">материалы: 5000</span>
               <span class="item">золото: 0</span>
             </p>
-            <h4>Требования к экплуатации</h4>
+            <h4>Требования к эксплуатации</h4>
             <p class="building-meta">
               <span class="item">персонал: 0</span>
             </p>
@@ -183,7 +219,7 @@
               <span class="item">материалы: 11000</span>
               <span class="item">золото: 6000</span>
             </p>
-            <h4>Требования к экплуатации</h4>
+            <h4>Требования к эксплуатации</h4>
             <p class="building-meta">
               <span class="item">персонал: 25</span>
               <span class="item">построено: Каменный карьер, Кузница</span>
@@ -196,12 +232,12 @@
         </div>
       </article>
     </main>
-    
+
     <footer class="site-footer">
-        <p class="meta-info">
-            Сайт по Аметистовому дозору - кампейну Сказочника. Проводится по ролевой
-            системе D&D 5e
-        </p>
+      <p class="meta-info">
+        Сайт по Аметистовому дозору - кампейну Сказочника. Проводится по ролевой
+        системе D&D 5e
+      </p>
     </footer>
   </body>
 </html>
