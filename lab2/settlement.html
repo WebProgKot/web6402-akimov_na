@@ -19,180 +19,182 @@
       <a href="lore.html">Лор</a>
     </nav>
 
-    <section class="intro">
-      <p>Аванпост «Падший дом»</p>
-      <figure>
-        <img
-          src="img/settlement.jpg"
-          alt="Аванпост «Падший дом»: бывший летающий корабль, защищённый стеной и облагороженный дозорными"
-        />
-        <figcaption>Падший дом — вид с ворот</figcaption>
-      </figure>
-    </section>
+    <main>
+      <section class="intro">
+        <h1>Аванпост «Падший дом»</h1>
+        <figure>
+          <img
+            src="img/settlement.jpg"
+            alt="Аванпост «Падший дом»: бывший летающий корабль, защищённый стеной и облагороженный дозорными"
+          />
+          <figcaption>Падший дом — вид с ворот</figcaption>
+        </figure>
+      </section>
 
-    <section class="camp-parameters">
-      <h2>Параметры лагеря</h2>
-      <p class="meta-info">
-        Текущие значения — сумма вкладов всех построенных сооружений.
-      </p>
-      <ul class="building-bonuses camp-bonuses">
-        <li class="is-zero">Производство <b>0</b></li>
-        <li class="is-zero">Торговля <b>0</b></li>
-        <li class="is-zero">Достаток <b>0</b></li>
-        <li>Отдых <b>+2</b></li>
-        <li>Военное дело <b>+1</b></li>
-        <li class="is-zero">Образование <b>0</b></li>
-        <li class="is-zero">Медицина <b>0</b></li>
-        <li class="is-zero">Здоровье <b>0</b></li>
-        <li class="is-zero">Порядок <b>0</b></li>
-        <li class="is-zero">Развитие <b>0</b></li>
-        <li class="is-zero">Культура <b>0</b></li>
-        <li class="is-zero">Вера <b>0</b></li>
-      </ul>
-    </section>
-
-    <article class="card building" data-status="built">
-      <figure>
-        <img
-          src="img/build-tavern.jpg"
-          alt="Фея-барменша Веспера из бара Тёплого ветра"
-        />
-        <!--TODO: Сделать скругление у картинки только слева - и подстроить текст под это-->
-      </figure>
-      <div class="building-body">
-        <h3>Бар Тёплого ветра</h3>
-        <h4>Стоимость строительства</h4>
-        <p class="building-meta">
-          <span class="item">материалы: 1000</span>
-          <span class="item">золото: 1000</span>
+      <section class="camp-parameters">
+        <h2>Параметры лагеря</h2>
+        <p class="meta-info">
+          Текущие значения — сумма вкладов всех построенных сооружений.
         </p>
-        <h4>Требования к экплуатации</h4>
-        <p class="building-meta">
-          <span class="item">персонал: 5</span>
-        </p>
-        <p>
-          Тёплое место для отдыха. Мисс Веспера рада услужить каждому гостю.
-        </p>
-
-        <h4>Параметры лагеря</h4>
-        <ul class="building-bonuses">
+        <ul class="building-bonuses camp-bonuses">
+          <li class="is-zero">Производство <b>0</b></li>
+          <li class="is-zero">Торговля <b>0</b></li>
+          <li class="is-zero">Достаток <b>0</b></li>
           <li>Отдых <b>+2</b></li>
-        </ul>
-
-        <table class="bonus-table">
-          <caption class="sr-only">
-            Активные эффекты
-          </caption>
-          <thead>
-            <tr>
-              <th class="ta-c">Эффект</th>
-              <th class="ta-c">Базовый</th>
-              <th class="ta-c">С улучшением</th>
-              <th class="ta-c">Условие</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Временные ПЗ после продолжительного отдыха</td>
-              <td class="ta-c">5</td>
-              <td class="ta-c">5</td>
-              <td>Нет проблем с провизией</td>
-            </tr>
-            <tr>
-              <td>Временные ПЗ при выходе в путешествие</td>
-              <td class="ta-c">5</td>
-              <td class="ta-c">7</td>
-              <td>Нет проблем с провизией</td>
-            </tr>
-          </tbody>
-        </table>
-
-        <h4>Улучшения</h4>
-        <details class="upgrade" data-status="built">
-          <summary>Элитный алкоголь</summary>
-          <ul>
-            <li>Параметр: Отдых <b>+1</b></li>
-            <li>Начала Путешествия из Аванпоста "Падший дом"</li>
-          </ul>
-        </details>
-      </div>
-    </article>
-
-    <article class="card building" data-status="built">
-      <figure>
-        <img src="img/build-fort_system.jpg" alt="Оооо моя оборонааа" />
-      </figure>
-      <div class="building-body">
-        <h3>Система укреплений</h3>
-        <h4>Стоимость строительства</h4>
-        <p class="building-meta">
-          <span class="item">материалы: 1000</span>
-          <span class="item">золото: 1000</span>
-        </p>
-        <h4>Требования к экплуатации</h4>
-        <p class="building-meta">
-          <span class="item">персонал: 25</span>
-        </p>
-        <p>Всё, что было и будет построено для обороны Падшего дома.</p>
-
-        <h4>Параметры лагеря</h4>
-        <ul class="building-bonuses">
           <li>Военное дело <b>+1</b></li>
+          <li class="is-zero">Образование <b>0</b></li>
+          <li class="is-zero">Медицина <b>0</b></li>
+          <li class="is-zero">Здоровье <b>0</b></li>
+          <li class="is-zero">Порядок <b>0</b></li>
+          <li class="is-zero">Развитие <b>0</b></li>
+          <li class="is-zero">Культура <b>0</b></li>
+          <li class="is-zero">Вера <b>0</b></li>
         </ul>
+      </section>
 
-        <table class="bonus-table">
-          <caption class="sr-only">
-            Пассивный эффект
-          </caption>
-          <thead>
-            <tr>
-              <th class="ta-c">Эффект</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>
-                Позволяет Возводить СУ: Постройки, которые налагают специальные
-                Эффекты на поселения.
-              </td>
-            </tr>
-          </tbody>
-        </table>
-
-        <h4>Улучшения</h4>
-        <details class="upgrade" data-status="built">
-          <summary>Деревянная стена (Уровень 1)</summary>
+      <article class="card building" data-status="built">
+        <figure>
+          <img
+            src="img/build-tavern.jpg"
+            alt="Фея-барменша Веспера из бара Тёплого ветра"
+          />
+          <!--TODO: Сделать скругление у картинки только слева - и подстроить текст под это-->
+        </figure>
+        <div class="building-body">
+          <h3>Бар Тёплого ветра</h3>
           <h4>Стоимость строительства</h4>
           <p class="building-meta">
-            <span class="item">материалы: 5000</span>
-            <span class="item">золото: 0</span>
+            <span class="item">материалы: 1000</span>
+            <span class="item">золото: 1000</span>
           </p>
           <h4>Требования к экплуатации</h4>
           <p class="building-meta">
-            <span class="item">персонал: 0</span>
+            <span class="item">персонал: 5</span>
           </p>
-          <ul>
-            <li>Параметр: Военное дело <b>+1</b></li>
+          <p>
+            Тёплое место для отдыха. Мисс Веспера рада услужить каждому гостю.
+          </p>
+
+          <h4>Параметры лагеря</h4>
+          <ul class="building-bonuses">
+            <li>Отдых <b>+2</b></li>
           </ul>
-        </details>
-        <details class="upgrade">
-          <summary>Каменная стена (Проект)</summary>
+
+          <table class="bonus-table">
+            <caption class="sr-only">
+              Активные эффекты
+            </caption>
+            <thead>
+              <tr>
+                <th class="ta-c">Эффект</th>
+                <th class="ta-c">Базовый</th>
+                <th class="ta-c">С улучшением</th>
+                <th class="ta-c">Условие</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Временные ПЗ после продолжительного отдыха</td>
+                <td class="ta-c">5</td>
+                <td class="ta-c">5</td>
+                <td>Нет проблем с провизией</td>
+              </tr>
+              <tr>
+                <td>Временные ПЗ при выходе в путешествие</td>
+                <td class="ta-c">5</td>
+                <td class="ta-c">7</td>
+                <td>Нет проблем с провизией</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h4>Улучшения</h4>
+          <details class="upgrade" data-status="built">
+            <summary>Элитный алкоголь</summary>
+            <ul>
+              <li>Параметр: Отдых <b>+1</b></li>
+              <li>Начала Путешествия из Аванпоста "Падший дом"</li>
+            </ul>
+          </details>
+        </div>
+      </article>
+
+      <article class="card building" data-status="built">
+        <figure>
+          <img src="img/build-fort_system.jpg" alt="Оооо моя оборонааа" />
+        </figure>
+        <div class="building-body">
+          <h3>Система укреплений</h3>
           <h4>Стоимость строительства</h4>
           <p class="building-meta">
-            <span class="item">материалы: 11000</span>
-            <span class="item">золото: 6000</span>
+            <span class="item">материалы: 1000</span>
+            <span class="item">золото: 1000</span>
           </p>
           <h4>Требования к экплуатации</h4>
           <p class="building-meta">
             <span class="item">персонал: 25</span>
-            <span class="item">построено: Каменный карьер, Кузница</span>
-            <span class="item">договор: Гильдия каменщиков</span>
           </p>
-          <ul>
-            <li>Параметр: Военное дело <b>+1</b></li>
+          <p>Всё, что было и будет построено для обороны Падшего дома.</p>
+
+          <h4>Параметры лагеря</h4>
+          <ul class="building-bonuses">
+            <li>Военное дело <b>+1</b></li>
           </ul>
-        </details>
-      </div>
-    </article>
+
+          <table class="bonus-table">
+            <caption class="sr-only">
+              Пассивный эффект
+            </caption>
+            <thead>
+              <tr>
+                <th class="ta-c">Эффект</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  Позволяет Возводить СУ: Постройки, которые налагают
+                  специальные Эффекты на поселения.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h4>Улучшения</h4>
+          <details class="upgrade" data-status="built">
+            <summary>Деревянная стена (Уровень 1)</summary>
+            <h4>Стоимость строительства</h4>
+            <p class="building-meta">
+              <span class="item">материалы: 5000</span>
+              <span class="item">золото: 0</span>
+            </p>
+            <h4>Требования к экплуатации</h4>
+            <p class="building-meta">
+              <span class="item">персонал: 0</span>
+            </p>
+            <ul>
+              <li>Параметр: Военное дело <b>+1</b></li>
+            </ul>
+          </details>
+          <details class="upgrade">
+            <summary>Каменная стена (Проект)</summary>
+            <h4>Стоимость строительства</h4>
+            <p class="building-meta">
+              <span class="item">материалы: 11000</span>
+              <span class="item">золото: 6000</span>
+            </p>
+            <h4>Требования к экплуатации</h4>
+            <p class="building-meta">
+              <span class="item">персонал: 25</span>
+              <span class="item">построено: Каменный карьер, Кузница</span>
+              <span class="item">договор: Гильдия каменщиков</span>
+            </p>
+            <ul>
+              <li>Параметр: Военное дело <b>+1</b></li>
+            </ul>
+          </details>
+        </div>
+      </article>
+    </main>
   </body>
 </html>
