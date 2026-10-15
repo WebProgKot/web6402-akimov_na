@@ -1,4 +1,6 @@
-/* 1. Переменные */
+/* ================================================================
+   1. ПЕРЕМЕННЫЕ - палитра проекта
+   ================================================================ */
 :root {
     --bg-dark: rgb(23, 16, 43);
     --bg-card: rgb(36, 26, 63);
@@ -14,8 +16,26 @@
 }
 
 
-/* 2. Сброс и база (заголовки, main, картинка, ссылки) */
-/* Форматирование заголовков */
+/* ================================================================
+   2. БАЗА - тело страницы, типографика, ссылки, картинки
+   ================================================================ */
+
+/* 2.1. Тело страницы и основной контент */
+body {
+    font-family: 'Segoe UI', system-ui, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--text);
+    background-color: var(--bg-dark);
+}
+
+main {
+    max-width: 1024px;
+    margin: 0 auto;
+    padding: 24px 16px;
+}
+
+/* 2.2. Заголовки */
 h1, h2, h3, h4 {
     font-family: Georgia, 'Times New Roman', serif;
     letter-spacing: 0.5px;
@@ -44,65 +64,7 @@ h4 {
     color: var(--text);
 }
 
-/* Хэдер */
-.site-header {
-    display: flex;
-    justify-content: center;
-    padding: 18px 16px 10px;
-}
-
-/* Футер */
-.site-footer {
-    margin-top: 32px;
-    padding: 16px;
-    border-top: 1px solid var(--border);
-    text-align: center;
-}
-
-/* Лого Аметистовый дозор */
-.logo {
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: 22px;
-    font-weight: bold;
-    letter-spacing: 0.5px;
-    color: var(--amethyst-glow);
-    text-decoration: none;
-}
-
-/* Основной текст */
-body {
-    font-family: 'Segoe UI', system-ui, Arial, sans-serif;
-    font-size: 16px;
-    line-height: 1.6;
-    color: var(--text);
-    background-color: var(--bg-dark);
-}
-
-/* Основной контент */
-main {
-    max-width: 1024px;
-    margin: 0 auto;
-    padding: 24px 16px;
-}
-
-/* 3. Навигация */
-/* Навигация, текущая страница */
-.main-nav .current {
-    font-weight: bold;
-    color: var(--gold);
-}
-
-/* Навигация, ссылки */
-.main-nav a {
-    color: var(--amethyst);
-    text-decoration: none;
-}
-
-.main-nav a:hover {
-    color: var(--amethyst-glow)
-}
-
-/* Ссылки */
+/* 2.3. Ссылки */
 a {
     color: var(--amethyst);
 }
@@ -111,13 +73,25 @@ a:hover {
     color: var(--amethyst-glow);
 }
 
-/* Рамка эмблемы Аметистового дозора */
-img.blurred-border-amethyst {
-    box-shadow: 0 0 12px 2px rgba(221, 127, 245, 0.5);
-    border-radius: 8px;
+/* 2.4. Изображения: figure, подписи, обтекание, рамка эмблемы */
+figure {
+    margin: 0;
 }
 
-/* 4. figure - Выравнивание картинок */
+figure img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Подпись к картинке */
+figcaption {
+    text-align: center;
+    font-size: 0.9em;
+    color: var(--text);
+    margin-top: 5px;
+}
+
 figure.align-right {
     float: right;
     width: 25%;
@@ -134,39 +108,76 @@ figure.align-left {
     max-width: 300px;
 }
 
-figure img {
-    width: 100%;
-    height: auto;
-    display: block;
+/* Рамка эмблемы Аметистовый дозор */
+img.blurred-border-amethyst {
+    box-shadow: 0 0 12px 2px rgba(221, 127, 245, 0.5);
+    border-radius: 8px;
 }
 
-figure.settlement img {
-    width: 75%;
-    max-width: 700px;
-    margin: 0 auto;
-    border-radius: 12px;
+
+/* ================================================================
+   3. КАРКАС СТРАНИЦЫ - шапка, навигация, футер
+   ================================================================ */
+
+/* Шапка */
+.site-header {
+    display: flex;
+    justify-content: center;
+    padding: 18px 16px 10px;
 }
 
-figure {
-    margin: 0;
+/* Лого Аметистовый дозор */
+.logo {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 22px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    color: var(--amethyst-glow);
+    text-decoration: none;
 }
 
-/* Подпись к картинке */
-figcaption {
+/* Навигация, текущая страница */
+.main-nav {
+    display: flex;
+    justify-content: center;
+    gap: 10px 24px;
+}
+
+.main-nav .current {
+    font-weight: bold;
+    color: var(--gold);
+}
+
+/* Навигация, ссылки */
+.main-nav a {
+    color: var(--amethyst);
+    text-decoration: none;
+}
+
+.main-nav a:hover {
+    color: var(--amethyst-glow)
+}
+
+/* Футер */
+.site-footer {
+    margin-top: 32px;
+    padding: 16px;
+    border-top: 1px solid var(--border);
     text-align: center;
-    font-size: 0.9em;
-    color: var(--text);
-    margin-top: 5px;
 }
 
-/* 5. Компоненты */
 /* Подписи и мета-информация */
 .meta-info {
     font-size: 13px;
     color: var(--text-muted);
 }
 
-/* Карточки */
+
+/* ================================================================
+   4. КОМПОНЕНТЫ
+   ================================================================ */
+
+/* 4.1. Карточка - общие правила */
 .card {
     background: var(--bg-card);
     border: 1px solid var(--border);
@@ -182,11 +193,11 @@ figcaption {
     box-shadow: 0 8px 24px rgba(157, 107, 206, 0.35);
 }
 
-.card h1,h2,h3,h4 {
+.card h1, .card h2, .card h3, .card h4 {
     margin: 0;
 }
 
-/* Постройки */
+/* 4.2. Карточка постройки */
 .card.building {
     display: flex;
     gap: 20px;
@@ -212,15 +223,21 @@ figcaption {
     font-size: 0.95rem;
 }
 
-.building-meta {
+/* 4.3. Мета-строки - построек и досье */
+.building-meta, .char-meta {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     gap: 8px;
-    margin: 0;
     color: var(--text-muted);
     font-size: 0.9rem;
 }
 
+.building-meta {
+    margin: 0;
+}
+
+/* Групповой разделитель «·» между пунктами - общий для обеих */
 .building-meta .item:not(:last-child)::after,
 .char-meta .item:not(:last-child)::after {
     content: "·";
@@ -228,6 +245,7 @@ figcaption {
     color: var(--gold);
 }
 
+/* 4.4. Чипы бонусов (.building-bonuses) */
 .building-bonuses {
     list-style: none;
     display: flex;
@@ -245,6 +263,19 @@ figcaption {
     font-size: 0.85rem;
 }
 
+.building-bonuses b {
+    color: var(--gold);
+}
+
+.building-bonuses.camp-bonuses li {
+    font-size: 1rem;
+}
+
+.is-zero b {
+    color: var(--text-muted);
+}
+
+/* 4.5. Блок параметров лагеря */
 .camp-params {
     margin-bottom: 16px;
     border: 1px solid var(--border);
@@ -256,14 +287,7 @@ figcaption {
     color: var(--gold);
 }
 
-.building-bonuses.camp-bonuses li {
-    font-size: 1rem;
-}
-
-.building-bonuses b {
-    color: var(--gold);
-}
-
+/* 4.6. Улучшения построек */
 .upgrade {
     margin-top: 12px;
     padding: 8px 12px;
@@ -291,11 +315,7 @@ figcaption {
     color: var(--gold);
 }
 
-.is-zero b {
-    color: var(--text-muted);
-}
-
-/* Разворачиваемые карточки */
+/* 4.7. Досье персонажей - разворачиваемые карточки */
 .char-face {
     display: flex;
     align-items: center;
@@ -306,21 +326,6 @@ figcaption {
 
 .char-face h3 {
     margin: 0;
-}
-
-.char-portrait {
-    flex: 0 0 auto;
-    width: 15%;
-    border-radius: 20px;
-    object-fit: cover;
-    border: 1px solid var(--border);
-}
-
-.char-sub {
-    display: block;
-    font-size: 0.85rem;
-    font-weight: normal;
-    color: var(--text-muted);
 }
 
 .char-face .status {
@@ -343,6 +348,21 @@ figcaption {
     color: var(--gold);
 }
 
+.char-portrait {
+    flex: 0 0 auto;
+    width: 15%;
+    border-radius: 20px;
+    object-fit: cover;
+    border: 1px solid var(--border);
+}
+
+.char-sub {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: normal;
+    color: var(--text-muted);
+}
+
 .char-body {
     max-width: 75ch;
     margin-top: 16px;
@@ -350,7 +370,7 @@ figcaption {
     border-top: 1px solid var(--border);
 }
 
-.char-body p, ul {
+.char-body p, .char-body ul {
     margin-top: 6px;
 }
 
@@ -362,15 +382,7 @@ figcaption {
     font-style: italic;
 }
 
-.char-meta {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 8px;
-    color: var(--text-muted);
-    font-size: 0.9rem;
-}
-
+/* 4.8. Статусные бейджи */
 .status {
     display: inline-block;
     padding: 2px 12px;
@@ -389,7 +401,7 @@ figcaption {
     border-color: var(--text-muted);
 }
 
-/* Кнопки */
+/* 4.9. Кнопки */
 .btn {
     display: inline-block;
     padding: 10px 24px;
@@ -405,8 +417,61 @@ figcaption {
     color: var(--bg-dark);
 }
 
-/* 6. Страницы */
-/* Статистика */
+
+/* ================================================================
+   5. ТАБЛИЦЫ
+   ================================================================ */
+
+/* 5.1. Утилиты выравнивания (требование задания) */
+.ta-l {
+    text-align: left;
+}
+
+.ta-c {
+    text-align: center;
+}
+
+.ta-r {
+    text-align: right;
+}
+
+/* 5.2. Таблицы бонусов */
+.bonus-table {
+    width: 100%;
+    margin: 8px 0 16px;
+    font-size: 0.9rem;
+}
+
+.bonus-table th, .bonus-table td {
+    padding: 6px 8px;
+    color: var(--gold);
+    border-bottom: 2px solid var(--gold);
+}
+
+.bonus-table thead th {
+    border-top: 2px solid var(--gold);
+    background-color: var(--bg-elevated);
+}
+
+/* 5.3. Сводная таблица параметров */
+.params-summary td:last-child {
+    color: var(--gold);
+    font-weight: bold;
+}
+
+
+/* ================================================================
+   6. СТРАНИЧНЫЕ БЛОКИ
+   ================================================================ */
+
+/* 6.1. Интро */
+.intro {
+    max-width: 720px;
+    margin: 0 auto 28px;
+    text-align: center;
+}
+
+/* 6.2. Статистика на главной */
 .statistics {
     display: flex;
     flex-wrap: wrap;
@@ -440,55 +505,25 @@ figcaption {
     color: var(--text-muted);
 }
 
-/* Интро */
-.intro {
-    max-width: 720px;
-    margin: 0 auto 28px;
-    text-align: center;
+/* 6.3. Вид аванпоста - картинка-герой «Поселения» */
+figure.settlement img {
+    width: 75%;
+    max-width: 700px;
+    margin: 0 auto;
+    border-radius: 12px;
 }
 
-/* Таблицы */
-.ta-c {
-    text-align: center;
-}
 
-.ta-l {
-    text-align: left;
-}
+/* ================================================================
+   7. СЛУЖЕБНЫЕ ПРАВИЛА
+   ================================================================ */
 
-.ta-r {
-    text-align: right;
-}
-
-.bonus-table {
-    width: 100%;
-    margin: 8px 0 16px;
-    font-size: 0.9rem;
-}
-
-.params-summary td:last-child {
-    color: var(--gold);
-    font-weight: bold;
-}
-
-.bonus-table th, .bonus-table td {
-    padding: 6px 8px;
-    color: var(--gold);
-    border-bottom: 2px solid var(--gold);
-}
-
-.bonus-table thead th {
-    border-top: 2px solid var(--gold);
-    background-color: var(--bg-elevated);
-}
-
-/* 7. id */
+/* 7.1. Якорь досье - ссылка не прячется под шапкой */
 #deekonus {
     scroll-margin-top: 90px;
 }
 
-/* 10. Адаптация */
-/* Скрин-ридер */
+/* 7.2. Только для скринридеров */
 .sr-only {
     position: absolute;
     width: 1px;
@@ -502,13 +537,15 @@ figcaption {
     border: 0;
 }
 
-/* Мобильная версия */
+
+/* ================================================================
+   8. АДАПТИВНОСТЬ
+   ================================================================ */
+
+/* 8.1. Планшет и телефон (до 720px) */
 @media (max-width: 720px) {
     .site-header { flex-direction: column; gap: 10px; }
-    .main-nav { flex-wrap: wrap; justify-content: center; }
-    .card-grid, .building-grid {
-        grid-template-columns: 1fr;
-    }
+    .main-nav { flex-wrap: wrap; }
     .statistic { justify-content: center; }
 
     figure.align-right, figure.align-left {
@@ -519,6 +556,7 @@ figcaption {
     }
 }
 
+/* 8.2. Телефон (до 560px) */
 @media (max-width: 560px) {
     .card.building {
         flex-direction: column;
@@ -531,7 +569,7 @@ figcaption {
     }
 }
 
-/* Отключение движения для пользователей с данной настройкой */
+/* 8.3. Отключение движения для пользователей с данной настройкой */
 @media (prefers-reduced-motion: reduce) {
 
     .card, .btn {
