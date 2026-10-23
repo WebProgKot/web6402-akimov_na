@@ -1,0 +1,13 @@
+# Logs
+logs
+*.log
+
+# NodeJS data
+node_modules
+package-lock.json
+yarn.lock
+
+# Editor settings
+.vscode/*
+!.vscode/extensions.json
+.idea
