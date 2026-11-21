@@ -1,11 +1,15 @@
 /* ================================================================
    0. СБРОС
    ================================================================ */
-/* padding и border внутри заданной ширины*/
-*, *::before, *::after { box-sizing: border-box; }
+*, *::before, *::after {
+    box-sizing: border-box;
+}
 
 /* Ни одна картинка не шире своего контейнера */
-img { max-width: 100%; height: auto; }
+img {
+    max-width: 100%;
+    height: auto;
+}
 
 
 /* ================================================================
@@ -23,6 +27,10 @@ img { max-width: 100%; height: auto; }
     --border: rgb(58, 43, 94);
     --danger: rgb(194, 91, 91);
     --success: rgb(95, 174, 127);
+    --glow: rgb(221, 127, 245);
+    --glow-soft: color-mix(in srgb, var(--glow) 50%, transparent);
+    --shadow-card: color-mix(in srgb, var(--amethyst) 35%, transparent);
+    --shadow-strong: color-mix(in srgb, var(--amethyst) 50%, transparent);
 }
 
 
@@ -120,7 +128,7 @@ figure.align-left {
 
 /* Рамка эмблемы Аметистовый дозор */
 img.blurred-border-amethyst {
-    box-shadow: 0 0 12px 2px rgba(221, 127, 245, 0.5);
+    box-shadow: 0 0 12px 2px var(--glow-soft);
     border-radius: 8px;
 }
 
@@ -200,7 +208,7 @@ img.blurred-border-amethyst {
 .card:hover {
     transform: translateY(-4px);
     border-color: var(--gold);
-    box-shadow: 0 8px 24px rgba(157, 107, 206, 0.35);
+    box-shadow: 0 8px 24px var(--shadow-card);
 }
 
 .card h1, .card h2, .card h3, .card h4 {
@@ -209,13 +217,13 @@ img.blurred-border-amethyst {
 
 /* 4.2. Карточка постройки */
 .card.building {
-    display: flex;
+    display: grid;
+    grid-template-columns: 300px 1fr;
     gap: 20px;
-    align-items: flex-start;
+    align-items: start;
 }
 
 .card.building figure {
-    flex: 0 0 300px;
     overflow: hidden;
 }
 
@@ -234,17 +242,23 @@ img.blurred-border-amethyst {
 }
 
 /* 4.3. Мета-строки - построек и досье */
-.building-meta, .char-meta {
+.building-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.char-meta {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     gap: 8px;
     color: var(--text-muted);
     font-size: 0.9rem;
-}
-
-.building-meta {
-    margin: 0;
 }
 
 /* Групповой разделитель «·» между пунктами - общий для обеих */
@@ -275,6 +289,14 @@ img.blurred-border-amethyst {
 
 .building-bonuses b {
     color: var(--gold);
+}
+
+/* Плитки параметров лагеря - тоже Grid: auto-fit сам подбирает
+   число колонок под ширину (modern CSS, без media-запросов) */
+.building-bonuses.camp-bonuses {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 8px;
 }
 
 .building-bonuses.camp-bonuses li {
@@ -334,6 +356,10 @@ img.blurred-border-amethyst {
     gap: 16px;
 }
 
+.char-face::-webkit-details-marker {
+    display: none;               /* старые Safari рисуют свой треугольник */
+}
+
 .char-face h3 {
     margin: 0;
 }
@@ -378,6 +404,10 @@ img.blurred-border-amethyst {
     margin-top: 16px;
     padding-top: 16px;
     border-top: 1px solid var(--border);
+}
+
+.char-body h4 {
+    margin: 16px 0 8px;
 }
 
 .char-body p, .char-body ul {
@@ -555,7 +585,7 @@ figure.settlement img {
 /* 8.1. Планшет и телефон (до 720px) */
 @media (max-width: 720px) {
     .site-header { flex-direction: column; gap: 10px; }
-    .main-nav { flex-wrap: wrap; }
+    .main-nav { flex-wrap: wrap; row-gap: 10px; }
     .statistic { justify-content: center; }
 
     figure.align-right, figure.align-left {
@@ -566,13 +596,12 @@ figure.settlement img {
     }
 }
 
-/* 8.2. Телефон (до 560px) */
+/* 8.2. Телефон (до 560px): Grid-карточка складывается в одну колонку */
 @media (max-width: 560px) {
     .card.building {
-        flex-direction: column;
+        grid-template-columns: 1fr;
     }
     .card.building figure {
-        flex: 0 0 auto;
         width: 100%;
         max-width: 300px;
         margin: 0 auto 16px;
