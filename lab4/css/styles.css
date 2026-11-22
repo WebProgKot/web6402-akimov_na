@@ -702,3 +702,309 @@ figure.settlement img {
 .join-hero__text p {
     color: var(--text-muted);
 }
+
+/* 9.2. Каскадное появление групп формы */
+@keyframes fade-up {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 9.3. Бегущий блеск по кнопке отправки */
+@keyframes shimmer-slide {
+    0% {
+        background-position: -200% 50%;
+    }
+
+    100% {
+        background-position: 200% 50%;
+    }
+}
+
+/* ================================================================
+   10. ФОРМА ЗАЯВКИ
+   ================================================================ */
+
+.application-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.application-form__group {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 20px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background-color: var(--bg-card);
+    animation: fade-up 0.5s ease-out both;
+}
+
+.application-form__group:nth-of-type(2) {
+    animation-delay: 0.12s;
+}
+
+.application-form__group:nth-of-type(3) {
+    animation-delay: 0.24s;
+}
+
+.application-form__group:nth-of-type(4) {
+    animation-delay: 0.36s;
+}
+
+.application-form__legend {
+    position: absolute;
+    top: 0;
+    transform: translateY(-50%);
+    color: var(--amethyst-glow);
+    font-size: 1.1em;
+    font-weight: 600;
+    line-height: 1.4;
+    padding: 2px 14px;
+    margin-left: 14px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background-color: var(--bg-dark);
+}
+
+.application-form__row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.application-form__field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 1 1 120px;
+}
+
+.application-form__label {
+    color: var(--amethyst-glow);
+    font-weight: 600;
+    font-size: 0.95em;
+}
+
+.application-form__input,
+.application-form__select,
+.application-form__textarea {
+    padding: 10px 12px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background-color: var(--bg-elevated);
+    color: var(--text);
+    font: inherit;
+}
+
+.application-form__select {
+    appearance: none;
+}
+
+.application-form__textarea {
+    resize: vertical;
+    min-height: 110px;
+}
+
+.application-form__input::placeholder {
+    color: var(--text-muted);
+    opacity: 0.7;
+}
+
+/* Состояния полей */
+.application-form__input:focus-visible,
+.application-form__textarea:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 1px;
+    border-color: var(--amethyst);
+}
+
+/* Списки */
+.application-form__select:focus-visible {
+    outline: none;
+    border-color: var(--amethyst);
+    box-shadow: 0 0 0 3px var(--shadow-card);
+}
+
+/* Варианты в открытом списке */
+.application-form__select option {
+    background-color: var(--bg-elevated);
+    color: var(--text);
+}
+
+.application-form__select option:checked {
+    background-color: var(--bg-card);
+    color: var(--gold);
+}
+
+/* Подкласс до выбора класса: заблокированное поле приглушено */
+.application-form__select:disabled {
+    cursor: not-allowed;
+    color: var(--text-muted);
+    opacity: 0.6;
+}
+
+.application-form__input:user-invalid,
+.application-form__select:user-invalid,
+.application-form__textarea:user-invalid {
+    border-color: var(--danger);
+}
+
+.application-form__radio-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 24px;
+}
+
+.application-form__radio-option {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text);
+}
+
+/* Радиокнопки и галочки */
+.application-form__input[type="radio"],
+.application-form__input[type="checkbox"] {
+    accent-color: var(--amethyst);
+    width: auto;
+}
+
+.application-form__input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 8px;
+    padding: 0;
+    border: 1px solid var(--border);
+    border-radius: 100vh;
+    background: linear-gradient(to right,
+            var(--amethyst) var(--fill, 25%),
+            var(--bg-elevated) var(--fill, 25%));
+}
+
+.application-form__input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--amethyst-glow);
+    border: 2px solid var(--amethyst);
+    box-shadow: 0 0 10px var(--glow-soft);
+    cursor: pointer;
+}
+
+/* Firefox рисует трек отдельным псевдоэлементом */
+.application-form__input[type="range"]::-moz-range-track {
+    height: 8px;
+    border-radius: 100vh;
+    border: 1px solid var(--border);
+    background: linear-gradient(to right,
+            var(--amethyst) var(--fill, 25%),
+            var(--bg-elevated) var(--fill, 25%));
+}
+
+.application-form__input[type="range"]::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--amethyst-glow);
+    border: 2px solid var(--amethyst);
+    box-shadow: 0 0 10px var(--glow-soft);
+    cursor: pointer;
+}
+
+.application-form__input[type="range"]:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 4px var(--shadow-card);
+}
+
+.application-form__range-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.application-form__range-output {
+    color: var(--gold);
+    font-weight: 700;
+    min-width: 2ch;
+    text-align: center;
+}
+
+.application-form__consent {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    color: var(--text-muted);
+}
+
+.application-form__submit {
+    align-self: flex-start;
+    padding: 12px 28px;
+    border: none;
+    border-radius: 8px;
+    background-image: linear-gradient(110deg,
+            var(--amethyst) 25%,
+            var(--glow) 50%,
+            var(--amethyst) 75%);
+    background-size: 200% 100%;
+    color: var(--bg-dark);
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+    animation: shimmer-slide 3.5s linear infinite;
+    transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+}
+
+.application-form__submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px var(--shadow-strong);
+}
+
+/* Статус отправки */
+.application-form__status {
+    padding: 10px 14px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background-color: var(--bg-elevated);
+    color: var(--text);
+}
+
+.application-form__status--ok {
+    border-color: var(--success);
+    color: var(--success);
+}
+
+.application-form__status--error {
+    border-color: var(--danger);
+    color: var(--danger);
+}
+
+.application-form__hint {
+    color: var(--text-muted);
+    font-size: 0.85em;
+}
+
+/* 10.1. Отключение новых анимаций */
+@media (prefers-reduced-motion: reduce) {
+
+    .join-hero__icon,
+    .application-form__group,
+    .application-form__submit {
+        animation: none;
+    }
+
+    .application-form__submit:hover {
+        transform: none;
+    }
+}
