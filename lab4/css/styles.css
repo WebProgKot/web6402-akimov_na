@@ -829,6 +829,15 @@ figure.settlement img {
 }
 
 /* Списки */
+.application-form__select {
+    appearance: none;
+    padding-right: 38px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1.5 6 6.5 11 1.5' fill='none' stroke='%23d9b24c' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    cursor: pointer;
+}
+
 .application-form__select:focus-visible {
     outline: none;
     border-color: var(--amethyst);
@@ -875,10 +884,67 @@ figure.settlement img {
 /* Радиокнопки и галочки */
 .application-form__input[type="radio"],
 .application-form__input[type="checkbox"] {
-    accent-color: var(--amethyst);
-    width: auto;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    flex: none;
+    margin: 0;
+    padding: 0;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background-color: var(--bg-elevated);
+    cursor: pointer;
+    transition: border-color 0.2s ease-out,
+        background-color 0.2s ease-out,
+        box-shadow 0.2s ease-out,
+        transform 0.15s ease-out;
 }
 
+/* Радиокнопка круглая: перекрывает радиус из общего правила */
+.application-form__input[type="radio"] {
+    border-radius: 50%;
+}
+
+.application-form__input[type="radio"]:hover,
+.application-form__input[type="checkbox"]:hover {
+    border-color: var(--amethyst);
+}
+
+.application-form__input[type="radio"]:active,
+.application-form__input[type="checkbox"]:active {
+    transform: scale(0.92);
+}
+
+/* Отмеченная галочка */
+.application-form__input[type="checkbox"]:checked {
+    border-color: var(--amethyst);
+    background-image:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 10'%3E%3Cpath d='M1 5.5 4.5 9 11 1.5' fill='none' stroke='%23d9b24c' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"),
+        linear-gradient(135deg, var(--amethyst), var(--glow));
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 11px 9px, 100% 100%;
+    box-shadow: 0 0 8px var(--shadow-card);
+}
+
+/* Отмеченная радиокнопка */
+.application-form__input[type="radio"]:checked {
+    border-color: var(--amethyst);
+    background-image: radial-gradient(circle,
+        var(--gold) 0 4px, transparent 4.5px);
+    box-shadow: 0 0 8px var(--shadow-card);
+}
+
+.application-form__input[type="radio"]:user-invalid,
+.application-form__input[type="checkbox"]:user-invalid {
+    border-color: var(--danger);
+}
+
+.application-form__consent .application-form__input[type="checkbox"] {
+    margin-top: 3px;
+}
+
+/* Ползунок */
 .application-form__input[type="range"] {
     -webkit-appearance: none;
     appearance: none;
@@ -941,6 +1007,7 @@ figure.settlement img {
     text-align: center;
 }
 
+/* Согласие на обработку данных */
 .application-form__consent {
     display: flex;
     align-items: flex-start;
