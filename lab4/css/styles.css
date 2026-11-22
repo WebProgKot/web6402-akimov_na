@@ -954,8 +954,8 @@ figure.settlement img {
     border: 1px solid var(--border);
     border-radius: 100vh;
     background: linear-gradient(to right,
-            var(--amethyst) var(--fill, 25%),
-            var(--bg-elevated) var(--fill, 25%));
+            var(--amethyst) var(--fill, 14%),
+            var(--bg-elevated) var(--fill, 14%));
 }
 
 .application-form__input[type="range"]::-webkit-slider-thumb {
@@ -975,8 +975,8 @@ figure.settlement img {
     border-radius: 100vh;
     border: 1px solid var(--border);
     background: linear-gradient(to right,
-            var(--amethyst) var(--fill, 25%),
-            var(--bg-elevated) var(--fill, 25%));
+            var(--amethyst) var(--fill, 14%),
+            var(--bg-elevated) var(--fill, 14%));
 }
 
 .application-form__input[type="range"]::-moz-range-thumb {

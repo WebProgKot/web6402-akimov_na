@@ -256,7 +256,7 @@ document.addEventListener("DOMContentLoaded", () => {
         rangeOutput.textContent = range.value;
         paintRangeTrack();
     });
-    paintRangeTrack(); // стартовая закраска (2 из 8 = 25%)
+    paintRangeTrack(); // стартовая закраска
 
     // Отправка формы
     form.addEventListener("submit", (event) => {
