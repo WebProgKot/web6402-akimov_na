@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Аметистовый дозор — Вступление</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <script src="js/join-form.js" defer></script>
+</head>
+
+<body>
+    <header class="site-header">
+        <a href="index.html" class="logo">Аметистовый дозор</a>
+    </header>
+    <nav class="main-nav">
+        <a href="index.html">Главная</a>
+        <a href="settlement.html">Поселение</a>
+        <a href="characters.html">Дозорные</a>
+        <a href="chronicle.html">Хроника</a>
+        <a href="lore.html">Лор</a>
+        <span class="current" aria-current="page">Вступление</span>
+    </nav>
+
+    <main>
+        <section class="join-hero">
+            <img class="join-hero__icon" src="img/index-logo_ad.jpg"
+                alt="Парящая эмблема Аметистового дозора" />
+            <div class="join-hero__text">
+                <h1>Вступление в Аметистовый дозор</h1>
+                <p>
+                    Дозор принимает новых героев. Заполните заявку и Сундаронд свяжется с вами.
+                </p>
+            </div>
+        </section>
+
+        <form class="application-form" id="join-form">
+            <fieldset class="application-form__group">
+                <legend class="application-form__legend">Досье</legend>
+                <div class="application-form__row">
+                    <div class="application-form__field">
+                        <label class="application-form__label" for="hero-name">Имя героя</label>
+                        <input class="application-form__input" type="text" id="hero-name"
+                            name="heroName" required minlength="2" maxlength="40"
+                            placeholder="Например, Космический Хомяк Бу" />
+                    </div>
+                    <div class="application-form__field">
+                        <label class="application-form__label" for="char-class">Класс персонажа</label>
+                        <select class="application-form__select" id="char-class" name="charClass" required>
+                            <option value="" selected disabled hidden>Выберите класс</option>
+                            <option value="Бард">Бард</option>
+                            <option value="Варвар">Варвар</option>
+                            <option value="Воин">Воин</option>
+                            <option value="Волшебник">Волшебник</option>
+                            <option value="Друид">Друид</option>
+                            <option value="Жрец">Жрец</option>
+                            <option value="Изобретатель">Изобретатель</option>
+                            <option value="Колдун">Колдун</option>
+                            <option value="Монах">Монах</option>
+                            <option value="Паладин">Паладин</option>
+                            <option value="Плут">Плут</option>
+                            <option value="Следопыт">Следопыт</option>
+                            <option value="Чародей">Чародей</option>
+                        </select>
+                    </div>
+                    <div class="application-form__field">
+                        <label class="application-form__label" for="char-subclass">Подкласс персонажа</label>
+                        <select class="application-form__select" id="char-subclass"
+                            name="charSubclass" required disabled>
+                            <option value="" selected disabled>Сначала выберите класс</option>
+                        </select>
+                    </div>
+                </div>
+                <p class="application-form__hint">
+                    Все герои Дозора стартуют с 7 уровня — он вписывается в заявку
+                    автоматически.
+                </p>
+            </fieldset>
+
+            <fieldset class="application-form__group">
+                <legend class="application-form__legend">Опыт и связь</legend>
+                <div class="application-form__field">
+                    <span class="application-form__label">Опыт в настольных ролёвках</span>
+                    <div class="application-form__radio-list">
+                        <label class="application-form__radio-option">
+                            <input class="application-form__input" type="radio"
+                                name="experience" value="Новичок" required />
+                            Новичок — недавно за столом
+                        </label>
+                        <label class="application-form__radio-option">
+                            <input class="application-form__input" type="radio"
+                                name="experience" value="Есть опыт" required />
+                            Есть опыт — с пару десятков игр за плечами
+                        </label>
+                        <label class="application-form__radio-option">
+                            <input class="application-form__input" type="radio"
+                                name="experience" value="Ветеран" required />
+                            Ветеран — прошёл несколько кампейнов
+                        </label>
+                    </div>
+                </div>
+                <div class="application-form__row">
+                    <div class="application-form__field">
+                        <label class="application-form__label" for="email">Почта для связи</label>
+                        <input class="application-form__input" type="email" id="email"
+                            name="email" required placeholder="hero@example.com" />
+                    </div>
+                    <div class="application-form__field">
+                        <label class="application-form__label" for="sessions-per-month">
+                            Готовность играть, сессий в месяц
+                        </label>
+                        <div class="application-form__range-row">
+                            <input class="application-form__input" type="range"
+                                id="sessions-per-month" name="sessionsPerMonth"
+                                min="1" max="8" step="1" value="2" />
+                            <output class="application-form__range-output" id="sessions-output"
+                                for="sessions-per-month">2</output>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset class="application-form__group">
+                <legend class="application-form__legend">Представление</legend>
+                <div class="application-form__field">
+                    <label class="application-form__label" for="story">
+                        Предыстория героя и его мотивация присоединиться к дозору
+                    </label>
+                    <textarea class="application-form__textarea" id="story" name="story"
+                        rows="5" maxlength="600"
+                        placeholder="Откуда ваш герой, чего он ищет в Дозоре и как в нём оказался…"></textarea>
+                    <p class="application-form__hint">
+                        Строго рекомендуется к заполнению.
+                    </p>
+                </div>
+            </fieldset>
+
+            <fieldset class="application-form__group">
+                <legend class="application-form__legend">Согласие и отправка</legend>
+                <label class="application-form__consent">
+                    <input class="application-form__input" type="checkbox" id="consent"
+                        name="consent" required />
+                    Согласен на обработку введённых данных
+                </label>
+                <button class="application-form__submit" type="submit">
+                    Отправить заявку в Дозор
+                </button>
+                <p class="application-form__status" id="form-status" hidden aria-live="polite"></p>
+            </fieldset>
+        </form>
+    </main>
+
+    <footer class="site-footer">
+        <p class="meta-info">
+            Сайт по Аметистовому дозору - кампейну Сказочника. Проводится по ролевой
+            системе D&D 5e
+        </p>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,1077 @@
+/* ================================================================
+   0. СБРОС
+   ================================================================ */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Ни одна картинка не шире своего контейнера */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+
+/* ================================================================
+   1. ПЕРЕМЕННЫЕ - палитра проекта
+   ================================================================ */
+:root {
+    color-scheme: dark;
+    --bg-dark: rgb(23, 16, 43);
+    --bg-card: rgb(36, 26, 63);
+    --bg-elevated: rgb(46, 34, 73);
+    --amethyst: rgb(157, 107, 206);
+    --amethyst-glow: rgb(201, 168, 240);
+    --gold: rgb(217, 178, 76);
+    --text: rgb(219, 213, 231);
+    --text-muted: rgb(156, 143, 196);
+    --border: rgb(58, 43, 94);
+    --danger: rgb(194, 91, 91);
+    --success: rgb(95, 174, 127);
+    --glow: rgb(221, 127, 245);
+    --glow-soft: color-mix(in srgb, var(--glow) 50%, transparent);
+    --shadow-card: color-mix(in srgb, var(--amethyst) 35%, transparent);
+    --shadow-strong: color-mix(in srgb, var(--amethyst) 50%, transparent);
+}
+
+
+/* ================================================================
+   2. БАЗА - тело страницы, типографика, ссылки, картинки
+   ================================================================ */
+
+/* 2.1. Тело страницы и основной контент */
+body {
+    font-family: 'Segoe UI', system-ui, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--text);
+    background-color: var(--bg-dark);
+}
+
+main {
+    max-width: 1024px;
+    margin: 0 auto;
+    padding: 24px 16px;
+}
+
+/* 2.2. Заголовки */
+h1,
+h2,
+h3,
+h4 {
+    font-family: Georgia, 'Times New Roman', serif;
+    letter-spacing: 0.5px;
+    font-weight: bold;
+}
+
+h1 {
+    font-size: 34px;
+    margin-bottom: 16px;
+    color: var(--amethyst-glow);
+}
+
+h2 {
+    font-size: 26px;
+    margin-bottom: 16px;
+    color: var(--text);
+}
+
+h3 {
+    font-size: 20px;
+    color: var(--text);
+}
+
+h4 {
+    font-size: 16px;
+    color: var(--text);
+}
+
+/* 2.3. Ссылки */
+a {
+    color: var(--amethyst);
+}
+
+a:hover {
+    color: var(--amethyst-glow);
+}
+
+a:focus-visible,
+.btn:focus-visible,
+summary:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 2px;
+}
+
+/* 2.4. Изображения: figure, подписи, обтекание, рамка эмблемы */
+figure {
+    margin: 0;
+}
+
+figure img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Подпись к картинке */
+figcaption {
+    text-align: center;
+    font-size: 0.9em;
+    color: var(--text);
+    margin-top: 5px;
+}
+
+figure.align-right {
+    float: right;
+    width: 25%;
+    margin-left: 20px;
+    margin-bottom: 10px;
+    max-width: 300px;
+}
+
+figure.align-left {
+    float: left;
+    width: 25%;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    max-width: 300px;
+}
+
+/* Рамка эмблемы Аметистовый дозор */
+img.blurred-border-amethyst {
+    box-shadow: 0 0 12px 2px var(--glow-soft);
+    border-radius: 8px;
+}
+
+
+/* ================================================================
+   3. КАРКАС СТРАНИЦЫ - шапка, навигация, футер
+   ================================================================ */
+
+/* Шапка */
+.site-header {
+    display: flex;
+    justify-content: center;
+    padding: 18px 16px 10px;
+}
+
+/* Лого Аметистовый дозор */
+.logo {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 22px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    color: var(--amethyst-glow);
+    text-decoration: none;
+}
+
+/* Навигация, текущая страница */
+.main-nav {
+    display: flex;
+    justify-content: center;
+    gap: 10px 24px;
+}
+
+.main-nav .current {
+    font-weight: bold;
+    color: var(--gold);
+}
+
+/* Навигация, ссылки */
+.main-nav a {
+    color: var(--amethyst);
+    text-decoration: none;
+}
+
+.main-nav a:hover {
+    color: var(--amethyst-glow)
+}
+
+/* Футер */
+.site-footer {
+    margin-top: 32px;
+    padding: 16px;
+    border-top: 1px solid var(--border);
+    text-align: center;
+}
+
+/* Подписи и мета-информация */
+.meta-info {
+    font-size: 13px;
+    color: var(--text-muted);
+}
+
+
+/* ================================================================
+   4. КОМПОНЕНТЫ
+   ================================================================ */
+
+/* 4.1. Карточка - общие правила */
+.card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+    margin-bottom: 10px;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    border-color: var(--gold);
+    box-shadow: 0 8px 24px var(--shadow-card);
+}
+
+.card h1,
+.card h2,
+.card h3,
+.card h4 {
+    margin: 0;
+}
+
+/* 4.2. Карточка постройки */
+.card.building {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 20px;
+    align-items: start;
+}
+
+.card.building figure {
+    overflow: hidden;
+}
+
+.card.building figure img {
+    border-radius: 10px;
+}
+
+.building-body {
+    min-width: 0;
+}
+
+.building-body h4 {
+    margin: 6px 0 6px;
+    font-size: 0.95rem;
+}
+
+/* 4.3. Мета-строки - построек и досье */
+.building-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.char-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+/* Групповой разделитель «·» между пунктами - общий для обеих */
+.building-meta .item:not(:last-child)::after,
+.char-meta .item:not(:last-child)::after {
+    content: "·";
+    margin-left: 8px;
+    color: var(--gold);
+}
+
+/* 4.4. Чипы бонусов (.building-bonuses) */
+.building-bonuses {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 8px 0 16px;
+    padding: 0;
+}
+
+.building-bonuses li {
+    background-color: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: 100vh;
+    padding: 2px 12px;
+    font-size: 0.85rem;
+}
+
+.building-bonuses b {
+    color: var(--gold);
+}
+
+/* Плитки параметров лагеря - тоже Grid: auto-fit сам подбирает
+   число колонок под ширину (modern CSS, без media-запросов) */
+.building-bonuses.camp-bonuses {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 8px;
+}
+
+.building-bonuses.camp-bonuses li {
+    font-size: 1rem;
+}
+
+.is-zero b {
+    color: var(--text-muted);
+}
+
+/* 4.5. Блок параметров лагеря */
+.camp-params {
+    margin-bottom: 16px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 6px 12px;
+}
+
+.camp-buildings-params summary {
+    color: var(--gold);
+}
+
+/* 4.6. Улучшения построек */
+.upgrade {
+    margin-top: 12px;
+    padding: 8px 12px;
+    background-color: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+}
+
+.upgrade summary {
+    cursor: pointer;
+    color: var(--gold);
+    font-weight: bold;
+}
+
+.upgrade ul {
+    margin: 8px 0 0;
+    padding-left: 20px
+}
+
+.upgrade ul b {
+    color: var(--text-muted);
+}
+
+.upgrade[data-status="built"] ul b {
+    color: var(--gold);
+}
+
+/* 4.7. Досье персонажей - разворачиваемые карточки */
+.char-face {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    cursor: pointer;
+    gap: 16px;
+}
+
+.char-face::-webkit-details-marker {
+    display: none;
+    /* старые Safari рисуют свой треугольник */
+}
+
+.char-face h3 {
+    margin: 0;
+}
+
+.char-face .status {
+    margin-left: auto;
+}
+
+.char-face::after {
+    content: "▸";
+    color: var(--gold);
+    margin-left: 8px;
+    font-size: 1.5rem;
+    transition: transform 0.2s;
+}
+
+.char-card details[open] .char-face::after {
+    transform: rotate(90deg);
+}
+
+.char-face:hover h3 {
+    color: var(--gold);
+}
+
+.char-portrait {
+    flex: 0 0 auto;
+    width: 15%;
+    border-radius: 20px;
+    object-fit: cover;
+    border: 1px solid var(--border);
+}
+
+.char-sub {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: normal;
+    color: var(--text-muted);
+}
+
+.char-body {
+    max-width: 75ch;
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+}
+
+.char-body h4 {
+    margin: 16px 0 8px;
+}
+
+.char-body p,
+.char-body ul {
+    margin-top: 6px;
+}
+
+.char-body blockquote {
+    margin: 16px 0 0;
+    padding: 4px 0 4px 16px;
+    border-left: 3px solid var(--gold);
+    color: var(--text-muted);
+    font-style: italic;
+}
+
+/* 4.8. Статусные бейджи */
+.status {
+    display: inline-block;
+    padding: 2px 12px;
+    border: 1px solid;
+    border-radius: 100vh;
+    font-size: 13px;
+}
+
+.status-signed {
+    color: var(--success);
+    border-color: var(--success);
+}
+
+.status-draft {
+    color: var(--text-muted);
+    border-color: var(--text-muted);
+}
+
+/* 4.9. Кнопки */
+.btn {
+    display: inline-block;
+    padding: 10px 24px;
+    border: 1px solid var(--amethyst);
+    border-radius: 20px;
+    color: var(--amethyst-glow);
+    text-decoration: none;
+    transition: background-color 0.25s, color 0.25s;
+}
+
+.btn:hover {
+    background-color: var(--amethyst);
+    color: var(--bg-dark);
+}
+
+
+/* ================================================================
+   5. ТАБЛИЦЫ
+   ================================================================ */
+
+/* 5.1. Утилиты выравнивания (требование задания) */
+.ta-l {
+    text-align: left;
+}
+
+.ta-c {
+    text-align: center;
+}
+
+.ta-r {
+    text-align: right;
+}
+
+/* 5.2. Таблицы бонусов */
+.bonus-table {
+    width: 100%;
+    margin: 8px 0 16px;
+    font-size: 0.9rem;
+}
+
+.bonus-table th,
+.bonus-table td {
+    padding: 6px 8px;
+    color: var(--gold);
+    border-bottom: 2px solid var(--gold);
+}
+
+.bonus-table thead th {
+    border-top: 2px solid var(--gold);
+    background-color: var(--bg-elevated);
+}
+
+/* 5.3. Сводная таблица параметров */
+.params-summary td:last-child {
+    color: var(--gold);
+    font-weight: bold;
+}
+
+
+/* ================================================================
+   6. СТРАНИЧНЫЕ БЛОКИ
+   ================================================================ */
+
+/* 6.1. Интро */
+.intro {
+    max-width: 720px;
+    margin: 0 auto 28px;
+    text-align: center;
+}
+
+/* 6.2. Статистика на главной */
+.statistics {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px 56px;
+    padding: 20px 24px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+}
+
+.statistics-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px 20px;
+}
+
+.statistic {
+    text-align: center;
+}
+
+.statistic-num {
+    display: block;
+    font-size: 44px;
+    line-height: 1.1;
+    color: var(--gold);
+}
+
+.statistic-label {
+    display: block;
+    font-size: 13px;
+    color: var(--text-muted);
+}
+
+/* 6.3. Вид аванпоста - картинка-герой «Поселения» */
+figure.settlement img {
+    width: 75%;
+    max-width: 700px;
+    margin: 0 auto;
+    border-radius: 12px;
+}
+
+
+/* ================================================================
+   7. СЛУЖЕБНЫЕ ПРАВИЛА
+   ================================================================ */
+
+/* 7.1. Якорь досье - ссылка не прячется под шапкой */
+#deekonus {
+    scroll-margin-top: 90px;
+}
+
+/* 7.2. Только для скринридеров */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    white-space: nowrap;
+    border: 0;
+}
+
+
+/* ================================================================
+   8. АДАПТИВНОСТЬ
+   ================================================================ */
+
+/* 8.1. Планшет и телефон (до 720px) */
+@media (max-width: 720px) {
+    .site-header {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .main-nav {
+        flex-wrap: wrap;
+        row-gap: 10px;
+    }
+
+    .statistic {
+        justify-content: center;
+    }
+
+    figure.align-right,
+    figure.align-left {
+        float: none;
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto 16px;
+    }
+}
+
+/* 8.2. Телефон (до 560px): Grid-карточка складывается в одну колонку */
+@media (max-width: 560px) {
+    .card.building {
+        grid-template-columns: 1fr;
+    }
+
+    .card.building figure {
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto 16px;
+    }
+}
+
+/* 8.3. Отключение движения для пользователей с данной настройкой */
+@media (prefers-reduced-motion: reduce) {
+
+    .card,
+    .btn {
+        transition: none;
+    }
+
+    .card:hover {
+        transform: none;
+    }
+
+    .char-face::after {
+        transition: none;
+    }
+
+    .char-card details[open] .char-face::after {
+        transform: none;
+    }
+}
+
+/* ================================================================
+   9. СТРАНИЦА "ВСТУПЛЕНИЕ" - АНИМАЦИИ
+   ================================================================ */
+
+/* 9.1. Парящая эмблема */
+@keyframes icon-float {
+
+    0%, 100% {
+        transform: translateY(0) rotate(-2deg);
+        box-shadow: 
+            0 0 10px color-mix(in srgb, var(--amethyst) 70%, transparent),
+            0 0 20px var(--bg-elevated);
+    }
+
+    50% {
+        transform: translateY(-14px) rotate(2deg);
+        box-shadow: 
+            0 0 18px var(--amethyst-glow),
+            0 0 36px var(--glow-soft);
+    }
+}
+
+.join-hero {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+}
+
+.join-hero__icon {
+    width: 160px;
+    border-radius: 50%;
+    animation: icon-float 4s ease-in-out infinite
+}
+
+.join-hero__text {
+    flex: 1 1 320px;
+}
+
+.join-hero__text p {
+    color: var(--text-muted);
+}
+
+/* 9.2. Каскадное появление групп формы */
+@keyframes fade-up {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 9.3. Бегущий блеск по кнопке отправки */
+@keyframes shimmer-slide {
+    0% {
+        background-position: -200% 50%;
+    }
+
+    100% {
+        background-position: 200% 50%;
+    }
+}
+
+/* ================================================================
+   10. ФОРМА ЗАЯВКИ
+   ================================================================ */
+
+.application-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.application-form__group {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 20px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background-color: var(--bg-card);
+    animation: fade-up 0.5s ease-out both;
+}
+
+.application-form__group:nth-of-type(2) {
+    animation-delay: 0.12s;
+}
+
+.application-form__group:nth-of-type(3) {
+    animation-delay: 0.24s;
+}
+
+.application-form__group:nth-of-type(4) {
+    animation-delay: 0.36s;
+}
+
+.application-form__legend {
+    position: absolute;
+    top: 0;
+    transform: translateY(-50%);
+    color: var(--amethyst-glow);
+    font-size: 1.1em;
+    font-weight: 600;
+    line-height: 1.4;
+    padding: 2px 14px;
+    margin-left: 14px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background-color: var(--bg-dark);
+}
+
+.application-form__row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.application-form__field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 1 1 120px;
+}
+
+.application-form__label {
+    color: var(--amethyst-glow);
+    font-weight: 600;
+    font-size: 0.95em;
+}
+
+.application-form__input,
+.application-form__select,
+.application-form__textarea {
+    padding: 10px 12px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background-color: var(--bg-elevated);
+    color: var(--text);
+    font: inherit;
+}
+
+.application-form__select {
+    appearance: none;
+}
+
+.application-form__textarea {
+    resize: vertical;
+    min-height: 110px;
+}
+
+.application-form__input::placeholder {
+    color: var(--text-muted);
+    opacity: 0.7;
+}
+
+/* Состояния полей */
+.application-form__input:focus-visible,
+.application-form__textarea:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 1px;
+    border-color: var(--amethyst);
+}
+
+/* Списки */
+.application-form__select {
+    appearance: none;
+    padding-right: 38px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1.5 6 6.5 11 1.5' fill='none' stroke='%23d9b24c' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    cursor: pointer;
+}
+
+.application-form__select:focus-visible {
+    outline: none;
+    border-color: var(--amethyst);
+    box-shadow: 0 0 0 3px var(--shadow-card);
+}
+
+/* Варианты в открытом списке */
+.application-form__select option {
+    background-color: var(--bg-elevated);
+    color: var(--text);
+}
+
+.application-form__select option:checked {
+    background-color: var(--bg-card);
+    color: var(--gold);
+}
+
+/* Подкласс до выбора класса: заблокированное поле приглушено */
+.application-form__select:disabled {
+    cursor: not-allowed;
+    color: var(--text-muted);
+    opacity: 0.6;
+}
+
+.application-form__input:user-invalid,
+.application-form__select:user-invalid,
+.application-form__textarea:user-invalid {
+    border-color: var(--danger);
+}
+
+.application-form__radio-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 24px;
+}
+
+.application-form__radio-option {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text);
+}
+
+/* Радиокнопки и галочки */
+.application-form__input[type="radio"],
+.application-form__input[type="checkbox"] {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    flex: none;
+    margin: 0;
+    padding: 0;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background-color: var(--bg-elevated);
+    cursor: pointer;
+    transition: border-color 0.2s ease-out,
+        background-color 0.2s ease-out,
+        box-shadow 0.2s ease-out,
+        transform 0.15s ease-out;
+}
+
+/* Радиокнопка круглая: перекрывает радиус из общего правила */
+.application-form__input[type="radio"] {
+    border-radius: 50%;
+}
+
+.application-form__input[type="radio"]:hover,
+.application-form__input[type="checkbox"]:hover {
+    border-color: var(--amethyst);
+}
+
+.application-form__input[type="radio"]:active,
+.application-form__input[type="checkbox"]:active {
+    transform: scale(0.92);
+}
+
+/* Отмеченная галочка */
+.application-form__input[type="checkbox"]:checked {
+    border-color: var(--amethyst);
+    background-image:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 10'%3E%3Cpath d='M1 5.5 4.5 9 11 1.5' fill='none' stroke='%23d9b24c' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"),
+        linear-gradient(135deg, var(--amethyst), var(--glow));
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 11px 9px, 100% 100%;
+    box-shadow: 0 0 8px var(--shadow-card);
+}
+
+/* Отмеченная радиокнопка */
+.application-form__input[type="radio"]:checked {
+    border-color: var(--amethyst);
+    background-image: radial-gradient(circle,
+        var(--gold) 0 4px, transparent 4.5px);
+    box-shadow: 0 0 8px var(--shadow-card);
+}
+
+.application-form__input[type="radio"]:user-invalid,
+.application-form__input[type="checkbox"]:user-invalid {
+    border-color: var(--danger);
+}
+
+.application-form__consent .application-form__input[type="checkbox"] {
+    margin-top: 3px;
+}
+
+/* Ползунок */
+.application-form__input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 8px;
+    padding: 0;
+    border: 1px solid var(--border);
+    border-radius: 100vh;
+    background: linear-gradient(to right,
+            var(--amethyst) var(--fill, 14%),
+            var(--bg-elevated) var(--fill, 14%));
+}
+
+.application-form__input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--amethyst-glow);
+    border: 2px solid var(--amethyst);
+    box-shadow: 0 0 10px var(--glow-soft);
+    cursor: pointer;
+}
+
+/* Firefox рисует трек отдельным псевдоэлементом */
+.application-form__input[type="range"]::-moz-range-track {
+    height: 8px;
+    border-radius: 100vh;
+    border: 1px solid var(--border);
+    background: linear-gradient(to right,
+            var(--amethyst) var(--fill, 14%),
+            var(--bg-elevated) var(--fill, 14%));
+}
+
+.application-form__input[type="range"]::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--amethyst-glow);
+    border: 2px solid var(--amethyst);
+    box-shadow: 0 0 10px var(--glow-soft);
+    cursor: pointer;
+}
+
+.application-form__input[type="range"]:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 4px var(--shadow-card);
+}
+
+.application-form__range-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.application-form__range-output {
+    color: var(--gold);
+    font-weight: 700;
+    min-width: 2ch;
+    text-align: center;
+}
+
+/* Согласие на обработку данных */
+.application-form__consent {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    color: var(--text-muted);
+}
+
+.application-form__submit {
+    align-self: flex-start;
+    padding: 12px 28px;
+    border: none;
+    border-radius: 8px;
+    background-image: linear-gradient(110deg,
+            var(--amethyst) 25%,
+            var(--glow) 50%,
+            var(--amethyst) 75%);
+    background-size: 200% 100%;
+    color: var(--bg-dark);
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+    animation: shimmer-slide 3.5s linear infinite;
+    transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+}
+
+.application-form__submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px var(--shadow-strong);
+}
+
+/* Статус отправки */
+.application-form__status {
+    padding: 10px 14px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background-color: var(--bg-elevated);
+    color: var(--text);
+}
+
+.application-form__status--ok {
+    border-color: var(--success);
+    color: var(--success);
+}
+
+.application-form__status--error {
+    border-color: var(--danger);
+    color: var(--danger);
+}
+
+.application-form__hint {
+    color: var(--text-muted);
+    font-size: 0.85em;
+}
+
+/* 10.1. Отключение новых анимаций */
+@media (prefers-reduced-motion: reduce) {
+
+    .join-hero__icon,
+    .application-form__group,
+    .application-form__submit {
+        animation: none;
+    }
+
+    .application-form__submit:hover {
+        transform: none;
+    }
+}
