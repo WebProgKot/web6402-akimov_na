@@ -18,6 +18,7 @@ img {
    1. ПЕРЕМЕННЫЕ - палитра проекта
    ================================================================ */
 :root {
+    color-scheme: dark;
     --bg-dark: rgb(23, 16, 43);
     --bg-card: rgb(36, 26, 63);
     --bg-elevated: rgb(46, 34, 73);
@@ -665,24 +666,15 @@ figure.settlement img {
 /* 9.1. Парящая эмблема */
 @keyframes icon-float {
 
-    0%,
-    100% {
-        transform: translateY(0) rotate(-2deg);
-    }
-
-    50% {
-        transform: translateY(-14px) rotate(2deg);
-    }
-}
-
-@keyframes icon-glow {
     0%, 100% {
+        transform: translateY(0) rotate(-2deg);
         box-shadow: 
             0 0 10px color-mix(in srgb, var(--amethyst) 70%, transparent),
             0 0 20px var(--bg-elevated);
     }
 
     50% {
+        transform: translateY(-14px) rotate(2deg);
         box-shadow: 
             0 0 18px var(--amethyst-glow),
             0 0 36px var(--glow-soft);
@@ -700,9 +692,7 @@ figure.settlement img {
 .join-hero__icon {
     width: 160px;
     border-radius: 50%;
-    animation:
-        icon-float 6s ease-in-out infinite,
-        icon-glow 4s ease-in-out infinite;
+    animation: icon-float 4s ease-in-out infinite
 }
 
 .join-hero__text {
